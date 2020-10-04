@@ -1,11 +1,11 @@
 
 source 'https://rubygems.org'
 
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.11.3'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,6 +40,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.3.6'
 end
 
 group :development do
@@ -50,3 +52,11 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # for Heroku deployment
+  # NOTE Rails prior to 5.1.5 do not support the pg 1.0.0 module!
+  # NOTE: You may need to research proper gem version compatibility for your environment.
+
+  gem 'pg', '~> 0.21'
+  gem 'rails_12factor'
+end
