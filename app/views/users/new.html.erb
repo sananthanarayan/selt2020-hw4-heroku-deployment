@@ -1,13 +1,11 @@
-<div class="login">
-  <div class="container">
-    <div class="form">
-      <h1>Sign up</h1>
-      <%= form_for(@user) do |f| %>
-        <%= f.text_field :name, :placeholder => "name" %>
-        <%= f.email_field :email, :placeholder => "Email" %>
-        <%= f.password_field :password, :placeholder => "Password" %>
-        <%= f.submit "Create an account", class: "btn-submit" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<h2>Sign Up</h2>
+
+<%= form_tag user_path, :class => 'form' do %>
+  <%= label :user_id, 'User Id', :class => 'col-form-label' %>
+  <%= text_field :user_id, 'User id'%>
+  <%= label :email, 'Email', :class => 'col-form-label' %>
+  <%= text_field :email, 'Email' %>
+  <br/>
+  <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', user_path, :class => 'btn btn-secondary' %>
+<% end %>

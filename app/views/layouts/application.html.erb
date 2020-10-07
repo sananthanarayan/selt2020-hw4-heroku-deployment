@@ -12,6 +12,11 @@
           <h1 class="title">Rotten Potatoes!</h1>
         </div>
         <div id="main">
+          <% if !@current_user %>
+            <%= button_to 'Sign up/Login', login_path, method: :get %>
+          <% else %>
+            <%= button_to 'Logout', logout_path, method: :delete %>
+          <%end %>
           <% if flash[:notice] %>
             <div class="alert alert-danger">
               <div class="message" id="notice">
