@@ -1,10 +1,10 @@
-<h2>Sign Up</h2>
+<h2>Login</h2>
 
-<%= form_tag new_user_path, :class => 'form' do %>
+<%= form_tag login_path, :class => 'form' do %>
   <%= label :user_id, 'User Id', :class => 'col-form-label' %>
   <%= text_field :user_id, 'User id'%>
   <%= label :email, 'Email', :class => 'col-form-label' %>
   <%= text_field :email, 'Email' %>
   <br/>
-  <%= submit_tag 'Sign-up for an account', :class => 'btn btn-primary' %>
+  <%= submit_tag 'Login to my account', :class => 'btn btn-primary' %>
 <% end %>
