@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  # Added the code to set up web site to redirect to movies path
   resources :movies
   root :to => redirect('/movies')
 
+  # Added the different routes for the users system
   resources :users
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post

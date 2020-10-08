@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
     # default: render 'new' template
   end
 
+  # Gives the user a session token during the login process and returns to user they have logged into app
   def create
-    # @user = UsersController.authenticate(params[:user_id], params[:email])
-    @user = User.find_by_user_id(params[:user_id])
+    # @user = User.find_by_user_id(params[:user_id])
     if @user
       session[:user_id] = user_id
       redirect_to movies_path
@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Destroys the session token for user id at logout and returns to user that they have logged out of app
   def destroy
     session[:user_id] = nil
     redirect_to movies_path
