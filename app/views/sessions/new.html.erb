@@ -1,12 +1,12 @@
 <h2>Login</h2>
 
-<%= form_tag login_path, :class => 'form' do %>
-  <%= label :user_id, 'User Id', :class => 'col-form-label' %>
-  <%= text_field :user_id, 'User id'%>
-  <%= label :email, 'Email', :class => 'col-form-label' %>
-  <%= text_field :email, 'Email' %>
+<%= form_tag login_create_path, :class => 'form' do %>
+  <%= label :user_id, 'User Id', :class => 'col-form-label', :id => 'loginUser' %>
+  <%= text_field :user, :user_id, :id => 'loginUser' %>
+  <%= label :email, 'Email', :class => 'col-form-label', :id => 'loginEmail' %>
+  <%= text_field :user, :email, :id => 'loginEmail' %>
   <br/>
-  <%= submit_tag 'Login to my account', :class => 'btn btn-primary' %>
-  <%= link_to 'Sign up for an account', new_user_path, :class => 'btn btn-secondary' %>
+  <%= submit_tag 'Login to my account', :class => 'btn btn-primary', :id => 'login_submit' %>
+  <%= link_to 'Sign up for an account', new_user_path, :class => 'btn btn-secondary', :id => 'signup' %>
 
 <% end %>

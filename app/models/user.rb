@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, allow_blank: false
 
   def create_user(params)
-    params[:session_token] = SecureRandom.base64(64)
-    ActiveRecord.create!(params)
+    params[:session_token] = SecureRandom.base64
+    User.create!(params)
   end
 
 end
