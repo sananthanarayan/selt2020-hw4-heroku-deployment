@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, allow_blank: false
 
   # Function adds session token to parameters before putting the user id, email, and session token into the user database
-  def create_user(params)
+  def self.create_user(params)
     params[:session_token] = SecureRandom.base64
     User.create!(params)
   end

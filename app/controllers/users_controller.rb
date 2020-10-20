@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     # The user inputs are saving the params variable but user is making the content nil
     @user = User.create_user(user_params)
-    flash[:notice] = "Hello #{user.user_id} was successfully created."
+    flash[:notice] = "Hello #{@user.user_id} was successfully created."
     redirect_to login_path
 
     rescue ActiveRecord::RecordInvalid
