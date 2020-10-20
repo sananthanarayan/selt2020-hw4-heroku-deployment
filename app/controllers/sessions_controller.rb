@@ -6,11 +6,14 @@ class SessionsController < ApplicationController
 
   # Gives the user a session token during the login process and returns to user they have logged into app
   def create
-    # @user = User.find_by_user_id(params[:user_id])
+    @user = User.find_by(params[:user_id], params[:email])
     if @user
-      session[:user_id] = user_id
+      session[:session_token] = @user.session_token
       redirect_to movies_path
       flash[:notice] = "Logged in!"
+    else
+      redirect_to login_path
+      flash[:notice] = "User does not exist"
     end
   end
 
